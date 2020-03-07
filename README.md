@@ -1,10 +1,26 @@
 # Forecasting Number of Female Births
 
+## Summary
+For the complete Time Series Analysis and Forecasting, all the steps were followed from data selection, exploring and visualizing the series and evaluating predictability, pre-processing of data, partitioning of time series, followed by generating numerous forecasting model, comparing the results of these models and then implementing the best model(s) for forecasting of data for 8 quarters in future, and deriving conclusions.
 
-**Table of Contents**
+The methods used for forecasting / model generation were
+
+* Seasonal Naive (as the base for comparison of accuracy results), 
+* Moving Average - Trailing (with 4 different window widths), 
+* Advanced Exponential Smoothing using Holt-Winter’s method, 
+* Regression with Linear Trend, 
+* Regression with Quadratic Trend, 
+* Regression with Seasonality, 
+* Regression with Linear Trend and Seasonality, 
+* Regression with Quadratic Trend and Seasonality and 
+* Auto ARIMA. 
+
+The selection of these models was made based on the merit / demerit of each.
+The forecasting results were quite promising with MAPE (Mean Absolute Percentage Error) being 2.789 and 2.809 and RMSE (Root Mean Square Error) as 115.073 and 122.954 for Regression with Linear Trend and Seasonality and Auto-ARIMA: (0,0,0)(1,1,0)[4] respectively. The data had seasonality in it with linear trend.
 
 
-## Introduction
+
+
 # Forecasting Process
 ##Define Goal
 ##Get Data
