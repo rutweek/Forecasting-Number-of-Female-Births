@@ -3,16 +3,12 @@
 
 **Table of Contents**
 
-[TOCM]
 
-[TOC]
-
-# Introduction
+## Introduction
 # Forecasting Process
 ##Define Goal
 ##Get Data
 ## Explore and Visualize Series
-
 ###Evaluating Predictability : Using AR(1) model
 ###Evaluating Predictability : Using Acf() function with 1st differencing:
 ###Time Series Components:
