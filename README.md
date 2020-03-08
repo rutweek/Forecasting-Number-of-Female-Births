@@ -28,14 +28,38 @@ Female births’ data was picked up for analysis and forecasting. The dataset ha
 The goal of this analysis was to forecast the number of births in a region of New Zealand for 8 quarters in future using one of the most optimum forecasting models applying the learnings of the Time Series Analysis and Forecasting Course and utilizing R as the software tool.
 ## Get Data
 Quarterly data for female births of a region in New Zealand was taken from the website: https://timeseries.weebly.com/data-sets.html. The data had other columns too, but the relevant column only was copied on to the csv file (Births.csv) used as input for this analysis and forecasting. After putting the data in time series dataset, the following were the head and tail rows of the time series:
+
+<img src="TS PROJECT/GET DATA.jpg" width=300 height=300>
+
 ## Explore and Visualize Series
 The first and foremost step in exploring and visualizing series was to see if the data is at all predictable, else the whole effort of forecasting will be a waste if the data is found to be a random walk / unpredictable. Hence, both the methods to analyze the predictability of data were applied as follows:
+
 ### Evaluating Predictability : Using AR(1) model
+Here, the coefficient of the ar1 variable, 0.0818 which is well below 1 and even with confidence of 95%, the upper value of this coefficient will still be far below 1. Hence, it was inferred that births_f.ts is not a random walk and is predictable.
+
+<img src="TS PROJECT/AR 1.jpg" width=600 height=300>
+
+<img src="TS PROJECT/AR 1 ACF.jpg" width=500 height=300>
+Using the first differencing of the historical data and Acf() function the above plot was obtained, where autocorrelation coefficients for lag 2 and lag 4 are statistically significant. Hence, it was inferred that the time series is not a random walk, rather predictable.
+Next summary of data was run to see if any outliers exist due to data entry errors or otherwise:
+
+<img src="TS PROJECT/AR1 Summary.jpg" width=300 height=300>
+
+It was found that the mean, median, quartiles values are all looking good and all were integers.No abnormality was found with the data including outliers.
+ 
+
+
 ### Evaluating Predictability : Using Acf() function with 1st differencing:
+
+
 ### Time Series Components:
+
 ### Autocorrelation of entire time series
+
 ## Step 4: Preprocess Data
+
 ## Step 5: Partitioning of Time Series
+
 ## Step 6: Applying Forecasting Methods
 
 
