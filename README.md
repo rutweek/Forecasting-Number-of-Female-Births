@@ -39,6 +39,12 @@ Here, the coefficient of the ar1 variable, 0.0818 which is well below 1 and even
 
 <img src="TS PROJECT/AR 1.jpg" width=600 height=300>
 
+
+ 
+
+
+### Evaluating Predictability : Using Acf() function with 1st differencing:
+
 <img src="TS PROJECT/AR 1 ACF.jpg" width=500 height=300>
 Using the first differencing of the historical data and Acf() function the above plot was obtained, where autocorrelation coefficients for lag 2 and lag 4 are statistically significant. Hence, it was inferred that the time series is not a random walk, rather predictable.
 Next summary of data was run to see if any outliers exist due to data entry errors or otherwise:
@@ -46,40 +52,81 @@ Next summary of data was run to see if any outliers exist due to data entry erro
 <img src="TS PROJECT/AR1 Summary.jpg" width=300 height=300>
 
 It was found that the mean, median, quartiles values are all looking good and all were integers.No abnormality was found with the data including outliers.
- 
-
-
-### Evaluating Predictability : Using Acf() function with 1st differencing:
-
 
 ### Time Series Components:
 
+Then using stl() function various time series components were analyzed as below:
+
+<img src="TS PROJECT/stl.jpg" width=600 height=300>
+
+The plot above shows that there seems to be an upward trend and very strong seasonality. The data does not seem to be too levelled.
 ### Autocorrelation of entire time series
+As seen in the graph below, autocorrelation coefficients for lag 2 and lag 4 are statistically significant. Especially, autocorrelation coefficient for lag 4 shows strong seasonality, however, that for lag 3 is almost negligible.
+
+<img src="TS PROJECT/AR 1 ACF.jpg" width=600 height=300>
 
 ## Step 4: Preprocess Data
+No data preprocessing was required as the data was found to be clean and straight-forward.
 
 ## Step 5: Partitioning of Time Series
+It was decided to keep 3 years data i.e. total 12 quarterly periods in validation dataset and balance 10 years’ data in the training dataset, making validation dataset as around 23% of the entire time series data. 
 
 ## Step 6: Applying Forecasting Methods
 
 
 ### 1. Seasonal Naive
+Seasonal Naive forecast was mainly used as a base for comparison. A table was prepared in the end comparing accuracy measures (MAPE and RMSE) for various forecasting methods. We can see baseline MAPE is 3.525 and RMSE is 162.697.
 
-###2. Moving Average - Trailing
+<img src="TS PROJECT/Seasonal Naive.jpg" width=400 height=200>
 
-###3. Advanced Exponential Smoothing (Holt-Winter's Model)
+### 2. Moving Average - Trailing
 
-###4. Regression Based Models
+<img src="TS PROJECT/Moving Average.jpg" width=500 height=300>
 
-####i. Regression model with linear trend
-####ii. Regression model with quadratic trend
-####iii. Regression model with seasonality
-####iv. Regression model with linear trend and seasonality
-####v. Regression model with quadratic trend and seasonality
-####Comparison
-####5. Auto-Arima
-##Step 7: Evaluation and Performance Comparison
-##Step 8: Implementing Forecasts
-###1. Regression model with linear trend and seasonality on entire dataset
+Models for Trailing Moving Averages were generated using rollmean() function with window width of 3, 4 , 5 and 6. It was sort of necessary to take window width of 4 as it was quarterly data. Accuracy measures were found using accuracy() function for all these models as shown above. As we can see the MAPE and RMSE for Training MA for window width 5, 5.385 and 255.223 respectively are the minimum amongst all Trailing MA models. The table at the end of this section compares the accuracy measures (MAPE and RMSE) for various forecasting methods including these.
+### 3. Advanced Exponential Smoothing (Holt-Winter's Model)
+Next Holt-Winter’s method was used with ets() function and model = “ZZZ” to get the system selected optimum model for error trend and seasonality. The model, as shown below resulted in multiplicative error, additive trend and additive seasonality (M,A,A), but with all, alpha (exponential smoothing constant), beta (smoothing constant for trend) and gamma (smoothing constant for seasonality) as negligible (all 0.0001). It means all the 3 components, error, trend and seasonal tend to be globally adjusted and does not change over time. The MAPE is 3.953 and RMSE is 168.451 .
 
-###2. Auto-Arima on entire dataset
+<img src="TS PROJECT/AES.png" width=600 height=600>
+
+### 4. Regression Based Models
+
+
+#### i. Regression model with linear trend
+
+<img src="" width=600 height=300>
+
+#### ii. Regression model with quadratic trend
+
+<img src="" width=600 height=300>
+
+#### iii. Regression model with seasonality
+
+<img src="" width=600 height=300>
+
+#### iv. Regression model with linear trend and seasonality
+
+<img src="" width=600 height=300>
+
+#### v. Regression model with quadratic trend and seasonality
+
+<img src="" width=600 height=300>
+
+#### Comparison
+
+<img src="" width=600 height=300>
+#### 5. Auto-Arima
+
+<img src="" width=600 height=300>
+## Step 7: Evaluation and Performance Comparison
+
+<img src="" width=600 height=300>
+## Step 8: Implementing Forecasts
+
+<img src="" width=600 height=300>
+### 1. Regression model with linear trend and seasonality on entire dataset
+
+
+<img src="" width=600 height=300>
+### 2. Auto-Arima on entire dataset
+<img src="" width=600 height=300>
