@@ -29,7 +29,7 @@ The goal of this analysis was to forecast the number of births in a region of Ne
 ## Get Data
 Quarterly data for female births of a region in New Zealand was taken from the website: https://timeseries.weebly.com/data-sets.html. The data had other columns too, but the relevant column only was copied on to the csv file (Births.csv) used as input for this analysis and forecasting. After putting the data in time series dataset, the following were the head and tail rows of the time series:
 
-<img src="TS PROJECT/GET DATA.jpg" width=300 height=300>
+<img src="TS PROJECT/GET DATA.jpg" width=200 height=250>
 
 ## Explore and Visualize Series
 The first and foremost step in exploring and visualizing series was to see if the data is at all predictable, else the whole effort of forecasting will be a waste if the data is found to be a random walk / unpredictable. Hence, both the methods to analyze the predictability of data were applied as follows:
@@ -49,7 +49,7 @@ Here, the coefficient of the ar1 variable, 0.0818 which is well below 1 and even
 Using the first differencing of the historical data and Acf() function the above plot was obtained, where autocorrelation coefficients for lag 2 and lag 4 are statistically significant. Hence, it was inferred that the time series is not a random walk, rather predictable.
 Next summary of data was run to see if any outliers exist due to data entry errors or otherwise:
 
-<img src="TS PROJECT/AR1 Summary.jpg" width=300 height=300>
+<img src="TS PROJECT/AR1 Summary.jpg" width=250 height=300>
 
 It was found that the mean, median, quartiles values are all looking good and all were integers.No abnormality was found with the data including outliers.
 
@@ -77,11 +77,11 @@ It was decided to keep 3 years data i.e. total 12 quarterly periods in validatio
 ### 1. Seasonal Naive
 Seasonal Naive forecast was mainly used as a base for comparison. A table was prepared in the end comparing accuracy measures (MAPE and RMSE) for various forecasting methods. We can see baseline MAPE is 3.525 and RMSE is 162.697.
 
-<img src="TS PROJECT/Seasonal Naive.jpg" width=300 height=100>
+<img src="TS PROJECT/Seasonal Naive.jpg" width=500 height=100>
 
 ### 2. Moving Average - Trailing
 
-<img src="TS PROJECT/Moving Average.jpg" width=500 height=300>
+<img src="TS PROJECT/Moving Average.jpg" width=500 height=280>
 
 Models for Trailing Moving Averages were generated using rollmean() function with window width of 3, 4 , 5 and 6. It was sort of necessary to take window width of 4 as it was quarterly data. Accuracy measures were found using accuracy() function for all these models as shown above. As we can see the MAPE and RMSE for Training MA for window width 5, 5.385 and 255.223 respectively are the minimum amongst all Trailing MA models. The table at the end of this section compares the accuracy measures (MAPE and RMSE) for various forecasting methods including these.
 ### 3. Advanced Exponential Smoothing (Holt-Winter's Model)
@@ -129,13 +129,13 @@ In the above model, the coefficients for trend, the 3 seasons and for F-statisti
 The accuracy measures for the 5 regression models tried above are given below and we can see that the regression model with linear trend and seasonality has the minimum MAPE value of 2.789 and RMSE value of 115.073.
 
 <img src="TS PROJECT/Reg model Comparison.jpg" width=600 height=500>
-#### 5. Auto-Arima
+### 5. Auto-Arima
 
 Last but not the least, Auto-ARIMA method was used for model development and the results were sort of surprising. The model summary is presented below. The result though is a seasonal ARIMA model with 3 parentheses, with AR component with no trend, no differencing and no seasonality (p,d,q = 0) and with AR seasonal component of order 1 (P=1), with 1 differencing (D=1) and no MA component (Q=0). Last parenthesis shows quarterly data (4). There is a drift.
 
 <img src="TS PROJECT/auto arima summary.jpg" width=600 height=300>
 
-<img src="TS PROJECT/auto arima accuracy.jpg" width=600 height=300>
+<img src="TS PROJECT/auto arima accuracy.jpg" width=600 height=100>
 
 We can see that MAPE is 2.809 and RMSE is 122.954 for validation data, which is pretty low compared to the other models.
 
@@ -145,7 +145,7 @@ In the next step of forecasting process, accuracy measures for various forecasti
 
 <img src="TS PROJECT/final comparison.jpg" width=600 height=300>
 
-<img src="TS PROJECT/comp summary.PNG" width=600 height=300>
+<img src="TS PROJECT/comp summary.PNG" width=600 height=280>
 
 From the above comparison table, it is evident that the best 2 models for forecasting are ‘Regression with Linear Trend and Seasonality’ and ‘Auto-ARIMA’. The difference in MAPE of the above 2 models is 0.02 only.
 
@@ -155,12 +155,12 @@ As discussed above, it was decided to forecast for the 2 years in the future usi
 
 ### 1. Regression model with linear trend and seasonality on entire dataset
 
-<img src="TS PROJECT/forecast 1.jpg" width=600 height=300>
+<img src="TS PROJECT/forecast 1.jpg" width=500 height=100>
 
 
 ### 2. Auto-Arima on entire dataset
 
-<img src="TS PROJECT/forecast 2.jpg" width=600 height=300>
+<img src="TS PROJECT/forecast 2.jpg" width=500 height=100>
 
 
 # Conclusion
