@@ -49,7 +49,7 @@ Here, the coefficient of the ar1 variable, 0.0818 which is well below 1 and even
 Using the first differencing of the historical data and Acf() function the above plot was obtained, where autocorrelation coefficients for lag 2 and lag 4 are statistically significant. Hence, it was inferred that the time series is not a random walk, rather predictable.
 Next summary of data was run to see if any outliers exist due to data entry errors or otherwise:
 
-<img src="TS PROJECT/AR1 Summary.jpg" width=250 height=300>
+<img src="TS PROJECT/AR1 Summary.jpg" width=250 height=250>
 
 It was found that the mean, median, quartiles values are all looking good and all were integers.No abnormality was found with the data including outliers.
 
@@ -155,12 +155,12 @@ As discussed above, it was decided to forecast for the 2 years in the future usi
 
 ### 1. Regression model with linear trend and seasonality on entire dataset
 
-<img src="TS PROJECT/forecast 1.jpg" width=500 height=100>
+<img src="TS PROJECT/forecast 1.jpg" width=450 height=100>
 
 
 ### 2. Auto-Arima on entire dataset
 
-<img src="TS PROJECT/forecast 2.jpg" width=500 height=100>
+<img src="TS PROJECT/forecast 2.jpg" width=450 height=100>
 
 
 # Conclusion
