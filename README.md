@@ -126,20 +126,53 @@ In the above model, the coefficients for trend, the 3 seasons and for F-statisti
 
 
 #### Comparison
+The accuracy measures for the 5 regression models tried above are given below and we can see that the regression model with linear trend and seasonality has the minimum MAPE value of 2.789 and RMSE value of 115.073.
 
-<img src="" width=600 height=300>
+<img src="TS PROJECT/Reg model Comparison.jpg" width=600 height=500>
 #### 5. Auto-Arima
 
-<img src="" width=600 height=300>
+Last but not the least, Auto-ARIMA method was used for model development and the results were sort of surprising. The model summary is presented below. The result though is a seasonal ARIMA model with 3 parentheses, with AR component with no trend, no differencing and no seasonality (p,d,q = 0) and with AR seasonal component of order 1 (P=1), with 1 differencing (D=1) and no MA component (Q=0). Last parenthesis shows quarterly data (4). There is a drift.
+
+<img src="TS PROJECT/auto arima summary.jpg" width=600 height=300>
+
+<img src="TS PROJECT/auto arima accuracy.jpg" width=600 height=300>
+
+We can see that MAPE is 2.809 and RMSE is 122.954 for validation data, which is pretty low compared to the other models.
+
 ## Step 7: Evaluation and Performance Comparison
+In the next step of forecasting process, accuracy measures for various forecasting methods tried above were compared. For moving average method, the best of the 4 models i.e. k=5 window width was taken for comparison. And for regression models, the best of the 5 models i.e. regression with linear trend and seasonality was taken for comparison:
 
-<img src="" width=600 height=300>
+
+<img src="TS PROJECT/final comparison.jpg" width=600 height=300>
+
+<img src="TS PROJECT/comp summary.PNG" width=600 height=300>
+
+From the above comparison table, it is evident that the best 2 models for forecasting are ‘Regression with Linear Trend and Seasonality’ and ‘Auto-ARIMA’. The difference in MAPE of the above 2 models is 0.02 only.
+
 ## Step 8: Implementing Forecasts
+As discussed above, it was decided to forecast for the 2 years in the future using both the models which were near best. The forecast, taken for the entire dataset (training and validation periods combined) as produced are given below:
 
-<img src="" width=600 height=300>
+
 ### 1. Regression model with linear trend and seasonality on entire dataset
 
+<img src="TS PROJECT/forecast 1.jpg" width=600 height=300>
 
-<img src="" width=600 height=300>
+
 ### 2. Auto-Arima on entire dataset
-<img src="" width=600 height=300>
+
+<img src="TS PROJECT/forecast 2.jpg" width=600 height=300>
+
+
+# Conclusion
+After utilizing 12 different models for forecasting (including 4 models with different window widths for Moving Averages and 5 models for regression), it was concluded that ‘Regression model with linear trend and seasonality’ was the best model for forecasting with a neck to neck competition with ‘Auto-ARIMA’ model. However, as Auto-ARIMA model resulted in many parameters as 0, it was felt that perhaps ‘Regression model with linear trend and seasonality’ should be used for forecasting the number of female births in the region.
+
+The forecasting results were quite promising with MAPE (Mean Absolute Percentage Error) being 2.789 and 2.809 and RMSE (Root Mean Square Error) as 115.073 and 122.954 for Regression with Linear Trend and Seasonality and Auto-ARIMA: (0,0,0)(1,1,0)[4] respectively. The data had seasonality in it with linear trend.
+
+Moving Average is usually used for data that lacks trend and seasonality. Since the data used in the project had liner trend and seasonality, moving averages method was not expected to give great results. As the data lacked quadratic or polynomial trend, quadratic trend with seasonality could not be used beneficially. Seasonal Naive was used as a base for comparison only. Holt-Winter’s model could have produced great results with trend and seasonality in the data, but found to have higher MAPE and RMSE as compared to better models.
+
+This project was a great learning opportunity for the group as many challenges were faced in accomplishing the goals and overcoming those challenges enhanced the understanding on the subject. Initially data on number of natural and planted forests in a country were taken but after initial analysis it was found that the data is not predictable and hence, had to be dropped. Then the current dataset was used.
+
+# Bibliography
+1.	https://timeseries.weebly.com/data-sets.html: Data was downloaded data from this website
+2.	PPTs, R Codes and Lecture Videos of Course ‘BAN673: Time Series Analytics and Forecasting’ by Prof. Zinovy Radovilsky.
+
