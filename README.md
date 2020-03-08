@@ -77,7 +77,7 @@ It was decided to keep 3 years data i.e. total 12 quarterly periods in validatio
 ### 1. Seasonal Naive
 Seasonal Naive forecast was mainly used as a base for comparison. A table was prepared in the end comparing accuracy measures (MAPE and RMSE) for various forecasting methods. We can see baseline MAPE is 3.525 and RMSE is 162.697.
 
-<img src="TS PROJECT/Seasonal Naive.jpg" width=400 height=200>
+<img src="TS PROJECT/Seasonal Naive.jpg" width=300 height=100>
 
 ### 2. Moving Average - Trailing
 
@@ -94,23 +94,36 @@ Next Holt-Winter’s method was used with ets() function and model = “ZZZ” t
 
 #### i. Regression model with linear trend
 
-<img src="" width=600 height=300>
+<img src="TS PROJECT/Reg Linear Trend.jpg" width=600 height=600>
 
+In the above model, though the trend coefficient is statistically significant and the p-value for F-statistic is also below 0.05, however, the R-squared values is only 0.1044. Hence, this model can not produce great forecast.
 #### ii. Regression model with quadratic trend
 
-<img src="" width=600 height=300>
+<img src="TS PROJECT/Reg Quad Trend.jpg" width=600 height=600>
+
+
+In the above model, both the trend and trend^2 coefficients are statistically insignificant, p-value for F-statistic is also 0.11 (statistically insignificant), also, R-squared is only 0.1113. Hence, this model can not be used for forecasting.
+
 
 #### iii. Regression model with seasonality
 
-<img src="" width=600 height=300>
+<img src="TS PROJECT/Reg with Seasonality.jpg" width=600 height=600>
+
+In this model, all the coefficients, for the 3 seasons and for F-statistic are statistically significant and R-squared is 0.7685, which is decent. Hence, this model can be used for forecasting and its equation can be given as: yt= 3223.2 + 198.5D2 + 743.1D3 + 169.2D3, where ytis the forecast for period t and D2, D3 and D4 are binary variables for Q2, Q3 and Q4.
 
 #### iv. Regression model with linear trend and seasonality
 
-<img src="" width=600 height=300>
+<img src="TS PROJECT/Reg model with trend and seasonality.jpg" width=600 height=600>
+
+In the above model, all the coefficients, for trend, the 3 seasons and for F-statistic are statistically significant and R-squared is 0.8518, which is pretty good. Hence, this model can be used for forecasting and its equation can be given as: yt= 3081.2 + 8t + 190.5D2 + 727.1D3 + 145.2D3, where yis the forecast for period t and D2, D3 and D4 are binary variables for Q2, Q3 and Q4.
+
 
 #### v. Regression model with quadratic trend and seasonality
 
-<img src="" width=600 height=300>
+<img src="TS PROJECT/Reg model with quad treand and seasonality.jpg" width=600 height=600>
+
+In the above model, the coefficients for trend, the 3 seasons and for F-statistic are statistically significant and R-squared is 0.858, which is pretty good. However, the coefficient for trend^2 is statistically insignificant with high p-value, which indicates that quadratic trend is missing in the data. But, this model can still be used for forecasting (subject to acceptable accuracy measures) and its equation can be given as: yt = 3021.19 + 16.6t - 0.21 t2 + 190.08D2 + 726.68D3 + 145.2D3, where ytis the forecast for period t and D2, D3 and D4 are binary variables for Q2, Q3 and Q4.
+
 
 #### Comparison
 
