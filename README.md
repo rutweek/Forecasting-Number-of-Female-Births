@@ -172,7 +172,4 @@ Moving Average is usually used for data that lacks trend and seasonality. Since 
 
 This project was a great learning opportunity for the group as many challenges were faced in accomplishing the goals and overcoming those challenges enhanced the understanding on the subject. Initially data on number of natural and planted forests in a country were taken but after initial analysis it was found that the data is not predictable and hence, had to be dropped. Then the current dataset was used.
 
-# Bibliography
-1.	https://timeseries.weebly.com/data-sets.html: Data was downloaded data from this website
-2.	PPTs, R Codes and Lecture Videos of Course ‘BAN673: Time Series Analytics and Forecasting’ by Prof. Zinovy Radovilsky.
 
